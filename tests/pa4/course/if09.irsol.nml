@@ -1,0 +1,21 @@
+lt() called: 0 < 0
+lt() called: 0 < 0
+lt() called: 0 < 0
+lt() called: 0 < -1
+lt() called: 0 < 0
+lt() called: 0 < 1
+true
+lt() called: 0 < -1
+lt() called: 0 < 0
+lt() called: 0 < -1
+lt() called: 0 < -1
+lt() called: 0 < -1
+lt() called: 0 < 1
+true
+lt() called: 0 < 1
+true
+lt() called: 0 < 1
+true
+lt() called: 0 < 1
+true
+printed

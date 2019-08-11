@@ -1,0 +1,1638 @@
+# Compiled using "xic" by Owen Arden, Catalin Dumitru, Wenzel Jakob, and Danfeng Zhang
+# Command line: java -jar xic.jar -libpath ../../../project/xth/tests/pa5/ --target linux pointexample.xi
+
+.file "pointexample.xi"
+.intel_syntax noprefix
+.text
+
+.globl _I_Color_getRGB_t3iii
+_I_Color_getRGB_t3iii:
+	mov rax, qword ptr [rsi+8]
+	mov rdx, qword ptr [rsi+16]
+	mov rcx, qword ptr [rsi+24]
+	mov qword ptr [rdi], rcx
+	ret
+
+.globl _I_Color_initColor_o5Coloriii
+_I_Color_initColor_o5Coloriii:
+	mov rax, rdi
+	mov qword ptr [rax+8], rsi
+	mov qword ptr [rax+24], rcx
+	mov qword ptr [rax+16], rdx
+	ret
+
+.globl _I_Color_toString_ai
+_I_Color_toString_ai:
+	push rbx
+	push rbp
+	push r12
+	push r13
+	push r14
+	push r15
+	sub rsp, 8
+	mov rbx, rdi
+	lea rdi, qword ptr [rip+.L22]
+	call strdup
+	mov r13, rax
+	mov rdi, qword ptr [rbx+8]
+	call _IunparseInt_aii
+	mov r15, rax
+	mov rbp, qword ptr [r13-8]
+	mov r12, qword ptr [r15-8]
+	lea r14, qword ptr [rbp+r12]
+	lea rdi, qword ptr [r14*8+8]
+	call _xi_alloc
+	mov qword ptr [rax], r14
+	add rax, 8
+	mov r14, rax
+	xor rax, rax
+.L23:
+	cmp rax, rbp
+	jge .L24
+	mov rcx, qword ptr [r13+rax*8]
+	mov qword ptr [r14+rax*8], rcx
+	inc rax
+	jmp .L23
+.L24:
+	xor rcx, rcx
+.L25:
+	cmp rcx, r12
+	jge .L26
+	mov rdx, qword ptr [r15+rcx*8]
+	lea rax, qword ptr [rcx+rbp]
+	mov qword ptr [r14+rax*8], rdx
+	inc rcx
+	jmp .L25
+.L26:
+	lea rdi, qword ptr [rip+.L27]
+	call strdup
+	mov rbp, rax
+	mov r15, qword ptr [r14-8]
+	mov r12, qword ptr [rbp-8]
+	lea r13, qword ptr [r15+r12]
+	lea rdi, qword ptr [r13*8+8]
+	call _xi_alloc
+	mov qword ptr [rax], r13
+	add rax, 8
+	mov r13, rax
+	xor rax, rax
+.L28:
+	cmp rax, r15
+	jge .L29
+	mov rcx, qword ptr [r14+rax*8]
+	mov qword ptr [r13+rax*8], rcx
+	inc rax
+	jmp .L28
+.L29:
+	xor rdx, rdx
+.L30:
+	cmp rdx, r12
+	jge .L31
+	mov rcx, qword ptr [rbp+rdx*8]
+	lea rax, qword ptr [rdx+r15]
+	mov qword ptr [r13+rax*8], rcx
+	inc rdx
+	jmp .L30
+.L31:
+	mov rdi, qword ptr [rbx+16]
+	call _IunparseInt_aii
+	mov r15, rax
+	mov rbp, qword ptr [r13-8]
+	mov r14, qword ptr [r15-8]
+	lea r12, qword ptr [rbp+r14]
+	lea rdi, qword ptr [r12*8+8]
+	call _xi_alloc
+	mov qword ptr [rax], r12
+	add rax, 8
+	mov r12, rax
+	xor rax, rax
+.L32:
+	cmp rax, rbp
+	jge .L33
+	mov rcx, qword ptr [r13+rax*8]
+	mov qword ptr [r12+rax*8], rcx
+	inc rax
+	jmp .L32
+.L33:
+	xor rdx, rdx
+.L34:
+	cmp rdx, r14
+	jge .L35
+	mov rcx, qword ptr [r15+rdx*8]
+	lea rax, qword ptr [rdx+rbp]
+	mov qword ptr [r12+rax*8], rcx
+	inc rdx
+	jmp .L34
+.L35:
+	lea rdi, qword ptr [rip+.L36]
+	call strdup
+	mov r13, rax
+	mov r15, qword ptr [r12-8]
+	mov r14, qword ptr [r13-8]
+	lea rbp, qword ptr [r15+r14]
+	lea rdi, qword ptr [rbp*8+8]
+	call _xi_alloc
+	mov qword ptr [rax], rbp
+	add rax, 8
+	mov rbp, rax
+	xor rax, rax
+.L37:
+	cmp rax, r15
+	jge .L38
+	mov rcx, qword ptr [r12+rax*8]
+	mov qword ptr [rbp+rax*8], rcx
+	inc rax
+	jmp .L37
+.L38:
+	xor rcx, rcx
+.L39:
+	cmp rcx, r14
+	jge .L40
+	mov rdx, qword ptr [r13+rcx*8]
+	lea rax, qword ptr [rcx+r15]
+	mov qword ptr [rbp+rax*8], rdx
+	inc rcx
+	jmp .L39
+.L40:
+	mov rdi, qword ptr [rbx+24]
+	call _IunparseInt_aii
+	mov r15, rax
+	mov r12, qword ptr [rbp-8]
+	mov r14, qword ptr [r15-8]
+	lea rbx, qword ptr [r12+r14]
+	lea rdi, qword ptr [rbx*8+8]
+	call _xi_alloc
+	mov qword ptr [rax], rbx
+	add rax, 8
+	xor rcx, rcx
+.L41:
+	cmp rcx, r12
+	jge .L42
+	mov rdx, qword ptr [rbp+rcx*8]
+	mov qword ptr [rax+rcx*8], rdx
+	inc rcx
+	jmp .L41
+.L42:
+	xor rdx, rdx
+.L43:
+	cmp rdx, r14
+	jge .L44
+	mov rdi, qword ptr [r15+rdx*8]
+	lea rcx, qword ptr [rdx+r12]
+	mov qword ptr [rax+rcx*8], rdi
+	inc rdx
+	jmp .L43
+.L44:
+	add rsp, 8
+	pop r15
+	pop r14
+	pop r13
+	pop r12
+	pop rbp
+	pop rbx
+	ret
+
+.globl _I_ColoredPoint_cloneColoredPoint_o12ColoredPoint
+_I_ColoredPoint_cloneColoredPoint_o12ColoredPoint:
+	push rbx
+	push r12
+	push r13
+	push r14
+	push r15
+	sub rsp, 16
+	mov rbx, rdi
+	mov r15, qword ptr [rip+_I_size_Point]
+	mov rax, qword ptr [rbx]
+	mov rdi, rbx
+	call qword ptr [rax+16]
+	mov r12, rax
+	mov r14, rdx
+	mov rax, qword ptr [rbx+r15+8]
+	mov rsi, rax
+	mov rdi, rsp
+	mov rax, qword ptr [rax]
+	call qword ptr [rax+16]
+	mov r15, rax
+	mov r13, rdx
+	mov rbx, qword ptr [rsp]
+	mov r8, rbx
+	mov rcx, r13
+	mov rdx, r15
+	mov rsi, r14
+	mov rdi, r12
+	call _IcreateColoredPoint_o12ColoredPointiiiii
+	mov r8, rbx
+	mov rcx, r13
+	mov rdx, r15
+	mov rsi, r14
+	mov rdi, r12
+	call _IcreateColoredPoint_o12ColoredPointiiiii
+	add rsp, 16
+	pop r15
+	pop r14
+	pop r13
+	pop r12
+	pop rbx
+	ret
+
+.globl _I_ColoredPoint_clone_o5Point
+_I_ColoredPoint_clone_o5Point:
+	push rbx
+	push r14
+	sub rsp, 8
+	mov r14, rdi
+	mov rax, qword ptr [r14]
+	mov rbx, qword ptr [rax+88]
+	mov rdi, r14
+	call rbx
+	mov rdi, r14
+	call rbx
+	add rsp, 8
+	pop r14
+	pop rbx
+	ret
+
+.globl _I_ColoredPoint_color_o5Color
+_I_ColoredPoint_color_o5Color:
+	mov rax, qword ptr [rip+_I_size_Point]
+	mov rax, qword ptr [rdi+rax+8]
+	ret
+
+.globl _I_ColoredPoint_initColoredPoint_o12ColoredPointiio5Color
+_I_ColoredPoint_initColoredPoint_o12ColoredPointiio5Color:
+	push rbx
+	mov rbx, rdi
+	mov rax, qword ptr [rip+_I_size_Point]
+	mov qword ptr [rbx+rax+8], rcx
+	mov rax, qword ptr [rbx]
+	mov rdi, rbx
+	call qword ptr [rax+32]
+	mov rax, rbx
+	pop rbx
+	ret
+
+.globl _I_ColoredPoint_toString_ai
+_I_ColoredPoint_toString_ai:
+	push rbx
+	push rbp
+	push r12
+	push r13
+	push r14
+	push r15
+	sub rsp, 200
+	mov qword ptr [rsp], rdi
+	mov rax, qword ptr [rip+_I_size_Point]
+	mov qword ptr [rsp+32], rax
+	mov rdi, qword ptr [rsp]
+	mov rcx, qword ptr [rsp]
+	mov rax, qword ptr [rcx]
+	call qword ptr [rax+16]
+	mov rbx, rax
+	mov r15, rdx
+	lea rax, qword ptr [rip+.L50]
+	mov qword ptr [rsp+168], rax
+	mov rdi, qword ptr [rsp+168]
+	call strdup
+	mov r12, rax
+	mov rdi, rbx
+	call _IunparseInt_aii
+	mov rbx, rax
+	mov r13, qword ptr [r12-8]
+	mov rbp, qword ptr [rbx-8]
+	mov qword ptr [rsp+24], r13
+	mov rcx, qword ptr [rsp+24]
+	add qword ptr [rsp+24], rbp
+	mov rax, qword ptr [rsp+24]
+	mov qword ptr [rsp+24], rax
+	mov rcx, qword ptr [rsp+24]
+	lea rax, qword ptr [rcx*8+8]
+	mov qword ptr [rsp+176], rax
+	mov rdi, qword ptr [rsp+176]
+	call _xi_alloc
+	mov r14, rax
+	mov rax, qword ptr [rsp+24]
+	mov qword ptr [r14], rax
+	add r14, 8
+	mov qword ptr [rsp+64], 0
+.L51:
+	cmp qword ptr [rsp+64], r13
+	jge .L52
+	mov rcx, qword ptr [rsp+64]
+	mov rax, qword ptr [r12+rcx*8]
+	mov qword ptr [rsp+88], rax
+	mov rcx, qword ptr [rsp+88]
+	mov rax, qword ptr [rsp+64]
+	mov qword ptr [r14+rax*8], rcx
+	inc qword ptr [rsp+64]
+	jmp .L51
+.L52:
+	mov qword ptr [rsp+144], 0
+.L53:
+	cmp qword ptr [rsp+144], rbp
+	jge .L54
+	mov rax, qword ptr [rsp+144]
+	mov rcx, qword ptr [rbx+rax*8]
+	mov qword ptr [rsp+96], rcx
+	mov rax, qword ptr [rsp+144]
+	mov qword ptr [rsp+136], rax
+	mov rax, qword ptr [rsp+136]
+	add qword ptr [rsp+136], r13
+	mov rcx, qword ptr [rsp+136]
+	mov rax, qword ptr [rsp+96]
+	mov qword ptr [r14+rcx*8], rax
+	inc qword ptr [rsp+144]
+	jmp .L53
+.L54:
+	lea rax, qword ptr [rip+.L10]
+	mov qword ptr [rsp+120], rax
+	mov rdi, qword ptr [rsp+120]
+	call strdup
+	mov r12, rax
+	mov r13, qword ptr [r14-8]
+	mov rbx, qword ptr [r12-8]
+	lea rbp, qword ptr [r13+rbx]
+	lea rax, qword ptr [rbp*8+8]
+	mov qword ptr [rsp+112], rax
+	mov rdi, qword ptr [rsp+112]
+	call _xi_alloc
+	mov qword ptr [rax], rbp
+	add rax, 8
+	mov rbp, rax
+	mov qword ptr [rsp+72], 0
+.L55:
+	cmp qword ptr [rsp+72], r13
+	jge .L56
+	mov rcx, qword ptr [rsp+72]
+	mov rcx, qword ptr [r14+rcx*8]
+	mov rax, qword ptr [rsp+72]
+	mov qword ptr [rbp+rax*8], rcx
+	inc qword ptr [rsp+72]
+	jmp .L55
+.L56:
+	mov qword ptr [rsp+8], 0
+.L57:
+	cmp qword ptr [rsp+8], rbx
+	jge .L58
+	mov rcx, qword ptr [rsp+8]
+	mov rcx, qword ptr [r12+rcx*8]
+	mov qword ptr [rsp+40], rcx
+	mov rax, qword ptr [rsp+8]
+	mov qword ptr [rsp+72], rax
+	mov rax, qword ptr [rsp+72]
+	add qword ptr [rsp+72], r13
+	mov rcx, qword ptr [rsp+72]
+	mov rax, qword ptr [rsp+40]
+	mov qword ptr [rbp+rcx*8], rax
+	inc qword ptr [rsp+8]
+	jmp .L57
+.L58:
+	mov rdi, r15
+	call _IunparseInt_aii
+	mov r15, rax
+	mov r14, qword ptr [rbp-8]
+	mov rbx, qword ptr [r15-8]
+	lea r12, qword ptr [r14+rbx]
+	lea rax, qword ptr [r12*8+8]
+	mov qword ptr [rsp+16], rax
+	mov rdi, qword ptr [rsp+16]
+	call _xi_alloc
+	mov qword ptr [rax], r12
+	add rax, 8
+	mov r12, rax
+	mov qword ptr [rsp+80], 0
+.L59:
+	cmp qword ptr [rsp+80], r14
+	jge .L60
+	mov rax, qword ptr [rsp+80]
+	mov rcx, qword ptr [rbp+rax*8]
+	mov qword ptr [rsp+56], rcx
+	mov rcx, qword ptr [rsp+80]
+	mov rax, qword ptr [rsp+56]
+	mov qword ptr [r12+rcx*8], rax
+	inc qword ptr [rsp+80]
+	jmp .L59
+.L60:
+	xor rdx, rdx
+.L61:
+	cmp rdx, rbx
+	jge .L62
+	mov rcx, qword ptr [r15+rdx*8]
+	mov qword ptr [rsp+80], rdx
+	mov rdi, qword ptr [rsp+80]
+	add qword ptr [rsp+80], r14
+	mov rax, qword ptr [rsp+80]
+	mov qword ptr [r12+rax*8], rcx
+	inc rdx
+	jmp .L61
+.L62:
+	lea rax, qword ptr [rip+.L63]
+	mov qword ptr [rsp+184], rax
+	mov rdi, qword ptr [rsp+184]
+	call strdup
+	mov qword ptr [rsp+48], rax
+	mov rax, qword ptr [rsp+48]
+	mov qword ptr [rsp+48], rax
+	mov r15, qword ptr [r12-8]
+	mov rcx, qword ptr [rsp+48]
+	mov r14, qword ptr [rcx-8]
+	lea r13, qword ptr [r15+r14]
+	lea rax, qword ptr [r13*8+8]
+	mov qword ptr [rsp+192], rax
+	mov rdi, qword ptr [rsp+192]
+	call _xi_alloc
+	mov rbx, rax
+	mov qword ptr [rbx], r13
+	add rbx, 8
+	mov qword ptr [rsp+152], 0
+.L64:
+	cmp qword ptr [rsp+152], r15
+	jge .L65
+	mov rax, qword ptr [rsp+152]
+	mov rcx, qword ptr [r12+rax*8]
+	mov qword ptr [rsp+128], rcx
+	mov rcx, qword ptr [rsp+152]
+	mov rax, qword ptr [rsp+128]
+	mov qword ptr [rbx+rcx*8], rax
+	inc qword ptr [rsp+152]
+	jmp .L64
+.L65:
+	mov qword ptr [rsp+160], 0
+.L66:
+	cmp qword ptr [rsp+160], r14
+	jge .L67
+	mov rcx, qword ptr [rsp+160]
+	mov rax, qword ptr [rsp+48]
+	mov rcx, qword ptr [rax+rcx*8]
+	mov rdx, qword ptr [rsp+160]
+	mov qword ptr [rsp+104], rdx
+	mov rdx, qword ptr [rsp+104]
+	add qword ptr [rsp+104], r15
+	mov rax, qword ptr [rsp+104]
+	mov qword ptr [rbx+rax*8], rcx
+	inc qword ptr [rsp+160]
+	jmp .L66
+.L67:
+	mov rcx, qword ptr [rsp+32]
+	mov rax, qword ptr [rsp]
+	mov rax, qword ptr [rax+rcx+8]
+	mov rdi, rax
+	mov rax, qword ptr [rax]
+	call qword ptr [rax+24]
+	mov r12, rax
+	mov r13, qword ptr [rbx-8]
+	mov r15, qword ptr [r12-8]
+	lea r14, qword ptr [r13+r15]
+	lea rdi, qword ptr [r14*8+8]
+	call _xi_alloc
+	mov qword ptr [rax], r14
+	add rax, 8
+	xor rcx, rcx
+.L68:
+	cmp rcx, r13
+	jge .L69
+	mov rdx, qword ptr [rbx+rcx*8]
+	mov qword ptr [rax+rcx*8], rdx
+	inc rcx
+	jmp .L68
+.L69:
+	xor rdi, rdi
+.L70:
+	cmp rdi, r15
+	jge .L71
+	mov rdx, qword ptr [r12+rdi*8]
+	lea rcx, qword ptr [rdi+r13]
+	mov qword ptr [rax+rcx*8], rdx
+	inc rdi
+	jmp .L70
+.L71:
+	add rsp, 200
+	pop r15
+	pop r14
+	pop r13
+	pop r12
+	pop rbp
+	pop rbx
+	ret
+
+.globl _I_Point_add_o5Pointo5Point
+_I_Point_add_o5Pointo5Point:
+	push rbx
+	push r14
+	sub rsp, 8
+	mov r14, rdi
+	mov rbx, rsi
+	mov rax, qword ptr [rbx+8]
+	mov rdi, qword ptr [r14+8]
+	add rdi, rax
+	mov rax, qword ptr [rbx+16]
+	mov rsi, qword ptr [r14+16]
+	add rsi, rax
+	call _IcreatePoint_o5Pointii
+	mov rcx, qword ptr [rbx+8]
+	mov rax, qword ptr [r14+8]
+	add rax, rcx
+	mov rcx, qword ptr [rbx+16]
+	mov rdx, qword ptr [r14+16]
+	add rdx, rcx
+	mov rsi, rdx
+	mov rdi, rax
+	call _IcreatePoint_o5Pointii
+	add rsp, 8
+	pop r14
+	pop rbx
+	ret
+
+.globl _I_Point_clone_o5Point
+_I_Point_clone_o5Point:
+	push rbx
+	mov rbx, rdi
+	mov rdi, qword ptr [rbx+8]
+	mov rsi, qword ptr [rbx+16]
+	call _IcreatePoint_o5Pointii
+	mov rax, qword ptr [rbx+8]
+	mov rcx, qword ptr [rbx+16]
+	mov rsi, rcx
+	mov rdi, rax
+	call _IcreatePoint_o5Pointii
+	pop rbx
+	ret
+
+.globl _I_Point_coords_t2ii
+_I_Point_coords_t2ii:
+	mov rax, qword ptr [rdi+8]
+	mov rdx, qword ptr [rdi+16]
+	ret
+
+.globl _I_Point_equals_bo5Point
+_I_Point_equals_bo5Point:
+	xor rax, rax
+	cmp rdi, rsi
+	sete al
+	ret
+
+.globl _I_Point_initPoint_o5Pointii
+_I_Point_initPoint_o5Pointii:
+	mov rax, rdi
+	mov qword ptr [rax+8], rsi
+	mov qword ptr [rax+16], rdx
+	ret
+
+.globl _I_Point_move_pii
+_I_Point_move_pii:
+	add qword ptr [rdi+8], rsi
+	add qword ptr [rdi+16], rdx
+	ret
+
+.globl _I_Point_toString_ai
+_I_Point_toString_ai:
+	push rbx
+	push rbp
+	push r12
+	push r13
+	push r14
+	push r15
+	sub rsp, 8
+	mov r14, rdi
+	lea rdi, qword ptr [rip+.L5]
+	call strdup
+	mov r15, rax
+	mov rdi, qword ptr [r14+8]
+	call _IunparseInt_aii
+	mov r12, rax
+	mov r13, qword ptr [r15-8]
+	mov rbx, qword ptr [r12-8]
+	lea rbp, qword ptr [r13+rbx]
+	lea rdi, qword ptr [rbp*8+8]
+	call _xi_alloc
+	mov qword ptr [rax], rbp
+	add rax, 8
+	mov rbp, rax
+	xor rax, rax
+.L6:
+	cmp rax, r13
+	jge .L7
+	mov rcx, qword ptr [r15+rax*8]
+	mov qword ptr [rbp+rax*8], rcx
+	inc rax
+	jmp .L6
+.L12:
+	xor rcx, rcx
+.L13:
+	cmp rcx, rbx
+	jge .L14
+	mov rdx, qword ptr [r12+rcx*8]
+	lea rax, qword ptr [rcx+r15]
+	mov qword ptr [r13+rax*8], rdx
+	inc rcx
+	jmp .L13
+.L14:
+	mov rdi, qword ptr [r14+16]
+	call _IunparseInt_aii
+	mov r15, rax
+	mov r14, qword ptr [r13-8]
+	mov r12, qword ptr [r15-8]
+	lea rbx, qword ptr [r14+r12]
+	lea rdi, qword ptr [rbx*8+8]
+	call _xi_alloc
+	mov qword ptr [rax], rbx
+	add rax, 8
+	xor rcx, rcx
+.L15:
+	cmp rcx, r14
+	jge .L16
+	mov rdx, qword ptr [r13+rcx*8]
+	mov qword ptr [rax+rcx*8], rdx
+	inc rcx
+	jmp .L15
+.L16:
+	xor rdi, rdi
+.L17:
+	cmp rdi, r12
+	jge .L18
+	mov rdx, qword ptr [r15+rdi*8]
+	lea rcx, qword ptr [rdi+r14]
+	mov qword ptr [rax+rcx*8], rdx
+	inc rdi
+	jmp .L17
+.L18:
+	jmp .E3
+.L7:
+	xor rcx, rcx
+.L8:
+	cmp rcx, rbx
+	jge .L9
+	mov rdx, qword ptr [r12+rcx*8]
+	lea rax, qword ptr [rcx+r13]
+	mov qword ptr [rbp+rax*8], rdx
+	inc rcx
+	jmp .L8
+.L9:
+	lea rdi, qword ptr [rip+.L10]
+	call strdup
+	mov r12, rax
+	mov r15, qword ptr [rbp-8]
+	mov rbx, qword ptr [r12-8]
+	lea r13, qword ptr [r15+rbx]
+	lea rdi, qword ptr [r13*8+8]
+	call _xi_alloc
+	mov qword ptr [rax], r13
+	add rax, 8
+	mov r13, rax
+	xor rax, rax
+.L11:
+	cmp rax, r15
+	jge .L12
+	mov rcx, qword ptr [rbp+rax*8]
+	mov qword ptr [r13+rax*8], rcx
+	inc rax
+	jmp .L11
+.E3:
+	add rsp, 8
+	pop r15
+	pop r14
+	pop r13
+	pop r12
+	pop rbp
+	pop rbx
+	ret
+
+.globl _I_init_Color
+_I_init_Color:
+	ret
+
+.globl _I_init_ColoredPoint
+_I_init_ColoredPoint:
+	sub rsp, 8
+	cmp qword ptr [rip+_I_size_ColoredPoint], 0
+	jne .L73
+	call _I_init_Point
+	mov rax, qword ptr [rip+_I_size_Point]
+	add rax, 8
+	mov qword ptr [rip+_I_size_ColoredPoint], rax
+	xor rcx, rcx
+.L74:
+	cmp rcx, 8
+	jge .L75
+	lea rax, qword ptr [rip+_I_vt_Point]
+	mov rax, qword ptr [rax+rcx*8]
+	lea rdx, qword ptr [rip+_I_vt_ColoredPoint]
+	mov qword ptr [rdx+rcx*8], rax
+	inc rcx
+	jmp .L74
+.L75:
+	lea rax, qword ptr [rip+_I_ColoredPoint_clone_o5Point]
+	mov qword ptr [rip+_I_vt_ColoredPoint+40], rax
+	lea rax, qword ptr [rip+_I_ColoredPoint_toString_ai]
+	mov qword ptr [rip+_I_vt_ColoredPoint+56], rax
+	mov qword ptr [rip+_I_vt_ColoredPoint+64], 0
+	lea rax, qword ptr [rip+_I_ColoredPoint_color_o5Color]
+	mov qword ptr [rip+_I_vt_ColoredPoint+72], rax
+	lea rax, qword ptr [rip+_I_ColoredPoint_initColoredPoint_o12ColoredPointiio5Color]
+	mov qword ptr [rip+_I_vt_ColoredPoint+80], rax
+	lea rax, qword ptr [rip+_I_ColoredPoint_cloneColoredPoint_o12ColoredPoint]
+	mov qword ptr [rip+_I_vt_ColoredPoint+88], rax
+.L73:
+	add rsp, 8
+	ret
+
+.globl _I_init_Point
+_I_init_Point:
+	ret
+
+.globl _IcreateColoredPoint_o12ColoredPointiiiii
+_IcreateColoredPoint_o12ColoredPointiiiii:
+	push rbx
+	push r12
+	push r13
+	push r14
+	push r15
+	mov r12, rdi
+	mov r14, rsi
+	mov r15, rdx
+	mov r13, rcx
+	mov rbx, r8
+	mov rdi, qword ptr [rip+_I_size_Color]
+	call _xi_alloc
+	lea rcx, qword ptr [rip+_I_vt_Color]
+	mov qword ptr [rax], rcx
+	mov rcx, rbx
+	mov rdx, r13
+	mov rsi, r15
+	mov rdi, rax
+	mov rax, qword ptr [rax]
+	call qword ptr [rax+8]
+	mov r15, rax
+	mov rbx, qword ptr [rip+_I_size_ColoredPoint]
+	mov rdi, rbx
+	call _xi_alloc
+	lea rcx, qword ptr [rip+_I_vt_ColoredPoint]
+	mov qword ptr [rax], rcx
+	mov rcx, r15
+	mov rdx, r14
+	mov rsi, r12
+	mov rdi, rax
+	mov rax, qword ptr [rax]
+	call qword ptr [rax+80]
+	mov rdi, rbx
+	call _xi_alloc
+	lea rcx, qword ptr [rip+_I_vt_ColoredPoint]
+	mov qword ptr [rax], rcx
+	mov rcx, r15
+	mov rdx, r14
+	mov rsi, r12
+	mov rdi, rax
+	mov rax, qword ptr [rax]
+	call qword ptr [rax+80]
+	pop r15
+	pop r14
+	pop r13
+	pop r12
+	pop rbx
+	ret
+
+.globl _IcreatePoint_o5Pointii
+_IcreatePoint_o5Pointii:
+	push rbx
+	push r14
+	push r15
+	mov r15, rdi
+	mov r14, rsi
+	mov rbx, qword ptr [rip+_I_size_Point]
+	mov rdi, rbx
+	call _xi_alloc
+	lea rcx, qword ptr [rip+_I_vt_Point]
+	mov qword ptr [rax], rcx
+	mov rdx, r14
+	mov rsi, r15
+	mov rdi, rax
+	mov rax, qword ptr [rax]
+	call qword ptr [rax+32]
+	mov rdi, rbx
+	call _xi_alloc
+	lea rcx, qword ptr [rip+_I_vt_Point]
+	mov qword ptr [rax], rcx
+	mov rdx, r14
+	mov rsi, r15
+	mov rdi, rax
+	mov rax, qword ptr [rax]
+	call qword ptr [rax+32]
+	pop r15
+	pop r14
+	pop rbx
+	ret
+
+.globl _Imain_paai
+_Imain_paai:
+	push rbx
+	push rbp
+	push r12
+	push r13
+	push r14
+	push r15
+	sub rsp, 8
+	lea rdi, qword ptr [rip+.L78]
+	call strdup
+	mov rdi, rax
+	call _Iprintln_pai
+	mov rsi, 200
+	mov rdi, 100
+	call _IcreatePoint_o5Pointii
+	mov r14, rax
+	mov rax, qword ptr [r14]
+	mov rbx, qword ptr [rax+56]
+	mov r15, qword ptr [r14]
+	mov rdi, r14
+	call rbx
+	mov rdi, rax
+	call _Iprintln_pai
+	lea rdi, qword ptr [rip+.L79]
+	call strdup
+	mov rdi, rax
+	call _Iprintln_pai
+	mov rdi, r14
+	call qword ptr [r15+40]
+	mov r15, rax
+	mov r12, qword ptr [r15]
+	mov rdx, 5
+	mov rsi, 5
+	mov rdi, r15
+	call qword ptr [r12+8]
+	mov rdi, r14
+	call rbx
+	mov rdi, rax
+	call _Iprintln_pai
+	lea rdi, qword ptr [rip+.L79]
+	call strdup
+	mov rdi, rax
+	call _Iprintln_pai
+	mov rdi, r15
+	call qword ptr [r12+56]
+	mov rdi, rax
+	call _Iprintln_pai
+	lea rdi, qword ptr [rip+.L80]
+	call strdup
+	mov rdi, rax
+	call _Iprintln_pai
+	xor r8, r8
+	mov rcx, 128
+	mov rdx, 255
+	mov rsi, 1000
+	mov rdi, 1000
+	call _IcreateColoredPoint_o12ColoredPointiiiii
+	mov r13, rax
+	mov rax, qword ptr [r13]
+	mov rbx, qword ptr [rax+56]
+	mov r14, qword ptr [r13]
+	mov rdi, r13
+	call rbx
+	mov rdi, rax
+	call _Iprintln_pai
+	lea rdi, qword ptr [rip+.L81]
+	call strdup
+	mov rdi, rax
+	call _Iprintln_pai
+	mov rdi, r13
+	call qword ptr [r14+40]
+	mov rbp, rax
+	mov r14, qword ptr [rbp]
+	mov rdx, 5
+	mov rsi, 5
+	mov rdi, rbp
+	call qword ptr [r14+8]
+	mov rdi, r13
+	call rbx
+	mov rdi, rax
+	call _Iprintln_pai
+	lea rdi, qword ptr [rip+.L81]
+	call strdup
+	mov rdi, rax
+	call _Iprintln_pai
+	mov rdi, rbp
+	call qword ptr [r14+56]
+	mov rdi, rax
+	call _Iprintln_pai
+	lea rdi, qword ptr [rip+.L82]
+	call strdup
+	mov rdi, rax
+	call _Iprintln_pai
+	mov rsi, r15
+	mov rdi, rbp
+	call qword ptr [r14+24]
+	mov rdi, rax
+	mov rax, qword ptr [rax]
+	call qword ptr [rax+56]
+	mov rdi, rax
+	call _Iprintln_pai
+	lea rdi, qword ptr [rip+.L83]
+	call strdup
+	mov rdi, rax
+	call _Iprintln_pai
+	mov rsi, r13
+	mov rdi, r15
+	call qword ptr [r12+24]
+	mov rdi, rax
+	mov rax, qword ptr [rax]
+	call qword ptr [rax+56]
+	mov rdi, rax
+	call _Iprintln_pai
+	lea rdi, qword ptr [rip+.L84]
+	call strdup
+	mov rdi, rax
+	call _Iprintln_pai
+	add rsp, 8
+	pop r15
+	pop r14
+	pop r13
+	pop r12
+	pop rbp
+	pop rbx
+	ret
+
+strdup:
+	push rbx
+	push r14
+	sub rsp, 8
+	mov r14, rdi
+	mov rbx, qword ptr [r14]
+	lea rdi, qword ptr [rbx*8+8]
+	call _xi_alloc
+.L85:
+	mov rcx, qword ptr [r14+rbx*8]
+	mov qword ptr [rax+rbx*8], rcx
+	dec rbx
+	cmp rbx, 0
+	jge .L85
+	add rax, 8
+	add rsp, 8
+	pop r14
+	pop rbx
+	ret
+
+	.section .rodata
+	.align 8
+.globl _I_size_Point
+_I_size_Point:
+	.quad 24
+	.text
+
+	.section .rodata
+	.align 8
+.globl _I_vt_Point
+_I_vt_Point:
+	.quad 0
+	.quad _I_Point_move_pii
+	.quad _I_Point_coords_t2ii
+	.quad _I_Point_add_o5Pointo5Point
+	.quad _I_Point_initPoint_o5Pointii
+	.quad _I_Point_clone_o5Point
+	.quad _I_Point_equals_bo5Point
+	.quad _I_Point_toString_ai
+	.text
+
+	.section .rodata
+	.align 8
+.globl _I_size_Color
+_I_size_Color:
+	.quad 32
+	.text
+
+	.section .rodata
+	.align 8
+.globl _I_vt_Color
+_I_vt_Color:
+	.quad 0
+	.quad _I_Color_initColor_o5Coloriii
+	.quad _I_Color_getRGB_t3iii
+	.quad _I_Color_toString_ai
+	.text
+
+	.bss
+	.align 8
+.globl _I_size_ColoredPoint
+_I_size_ColoredPoint:
+	.zero 8
+	.text
+
+	.bss
+	.align 8
+.globl _I_vt_ColoredPoint
+_I_vt_ColoredPoint:
+	.zero 96
+	.text
+
+.section .ctors
+	.align 8
+	.quad _I_init_ColoredPoint
+	.text
+
+	.section .rodata
+	.align 8
+.L63:
+	.quad 5
+	.quad 32
+	.quad 97
+	.quad 110
+	.quad 100
+	.quad 32
+	.text
+
+	.section .rodata
+	.align 8
+.L36:
+	.quad 9
+	.quad 32
+	.quad 97
+	.quad 110
+	.quad 100
+	.quad 32
+	.quad 98
+	.quad 32
+	.quad 61
+	.quad 32
+	.text
+
+	.section .rodata
+	.align 8
+.L27:
+	.quad 9
+	.quad 32
+	.quad 97
+	.quad 110
+	.quad 100
+	.quad 32
+	.quad 103
+	.quad 32
+	.quad 61
+	.quad 32
+	.text
+
+	.section .rodata
+	.align 8
+.L10:
+	.quad 9
+	.quad 32
+	.quad 97
+	.quad 110
+	.quad 100
+	.quad 32
+	.quad 121
+	.quad 32
+	.quad 61
+	.quad 32
+	.text
+
+	.section .rodata
+	.align 8
+.L22:
+	.quad 15
+	.quad 67
+	.quad 111
+	.quad 108
+	.quad 111
+	.quad 114
+	.quad 32
+	.quad 119
+	.quad 105
+	.quad 116
+	.quad 104
+	.quad 32
+	.quad 114
+	.quad 32
+	.quad 61
+	.quad 32
+	.text
+
+	.section .rodata
+	.align 8
+.L50:
+	.quad 20
+	.quad 67
+	.quad 111
+	.quad 108
+	.quad 111
+	.quad 114
+	.quad 101
+	.quad 100
+	.quad 80
+	.quad 111
+	.quad 105
+	.quad 110
+	.quad 116
+	.quad 32
+	.quad 97
+	.quad 116
+	.quad 32
+	.quad 120
+	.quad 32
+	.quad 61
+	.quad 32
+	.text
+
+	.section .rodata
+	.align 8
+.L5:
+	.quad 13
+	.quad 80
+	.quad 111
+	.quad 105
+	.quad 110
+	.quad 116
+	.quad 32
+	.quad 97
+	.quad 116
+	.quad 32
+	.quad 120
+	.quad 32
+	.quad 61
+	.quad 32
+	.text
+
+	.section .rodata
+	.align 8
+.L81:
+	.quad 104
+	.quad 83
+	.quad 104
+	.quad 111
+	.quad 117
+	.quad 108
+	.quad 100
+	.quad 32
+	.quad 104
+	.quad 97
+	.quad 118
+	.quad 101
+	.quad 32
+	.quad 112
+	.quad 114
+	.quad 105
+	.quad 110
+	.quad 116
+	.quad 101
+	.quad 100
+	.quad 32
+	.quad 34
+	.quad 67
+	.quad 111
+	.quad 108
+	.quad 111
+	.quad 114
+	.quad 101
+	.quad 100
+	.quad 80
+	.quad 111
+	.quad 105
+	.quad 110
+	.quad 116
+	.quad 32
+	.quad 97
+	.quad 116
+	.quad 32
+	.quad 120
+	.quad 32
+	.quad 61
+	.quad 32
+	.quad 49
+	.quad 48
+	.quad 48
+	.quad 48
+	.quad 32
+	.quad 97
+	.quad 110
+	.quad 100
+	.quad 32
+	.quad 121
+	.quad 32
+	.quad 61
+	.quad 32
+	.quad 50
+	.quad 48
+	.quad 48
+	.quad 48
+	.quad 32
+	.quad 97
+	.quad 110
+	.quad 100
+	.quad 32
+	.quad 67
+	.quad 111
+	.quad 108
+	.quad 111
+	.quad 114
+	.quad 32
+	.quad 119
+	.quad 105
+	.quad 116
+	.quad 104
+	.quad 32
+	.quad 114
+	.quad 32
+	.quad 61
+	.quad 32
+	.quad 50
+	.quad 53
+	.quad 53
+	.quad 32
+	.quad 97
+	.quad 110
+	.quad 100
+	.quad 32
+	.quad 103
+	.quad 32
+	.quad 61
+	.quad 32
+	.quad 49
+	.quad 50
+	.quad 56
+	.quad 32
+	.quad 97
+	.quad 110
+	.quad 100
+	.quad 32
+	.quad 98
+	.quad 32
+	.quad 61
+	.quad 32
+	.quad 48
+	.quad 34
+	.text
+
+	.section .rodata
+	.align 8
+.L82:
+	.quad 104
+	.quad 83
+	.quad 104
+	.quad 111
+	.quad 117
+	.quad 108
+	.quad 100
+	.quad 32
+	.quad 104
+	.quad 97
+	.quad 118
+	.quad 101
+	.quad 32
+	.quad 112
+	.quad 114
+	.quad 105
+	.quad 110
+	.quad 116
+	.quad 101
+	.quad 100
+	.quad 32
+	.quad 34
+	.quad 67
+	.quad 111
+	.quad 108
+	.quad 111
+	.quad 114
+	.quad 101
+	.quad 100
+	.quad 80
+	.quad 111
+	.quad 105
+	.quad 110
+	.quad 116
+	.quad 32
+	.quad 97
+	.quad 116
+	.quad 32
+	.quad 120
+	.quad 32
+	.quad 61
+	.quad 32
+	.quad 49
+	.quad 48
+	.quad 48
+	.quad 53
+	.quad 32
+	.quad 97
+	.quad 110
+	.quad 100
+	.quad 32
+	.quad 121
+	.quad 32
+	.quad 61
+	.quad 32
+	.quad 50
+	.quad 48
+	.quad 48
+	.quad 53
+	.quad 32
+	.quad 97
+	.quad 110
+	.quad 100
+	.quad 32
+	.quad 67
+	.quad 111
+	.quad 108
+	.quad 111
+	.quad 114
+	.quad 32
+	.quad 119
+	.quad 105
+	.quad 116
+	.quad 104
+	.quad 32
+	.quad 114
+	.quad 32
+	.quad 61
+	.quad 32
+	.quad 50
+	.quad 53
+	.quad 53
+	.quad 32
+	.quad 97
+	.quad 110
+	.quad 100
+	.quad 32
+	.quad 103
+	.quad 32
+	.quad 61
+	.quad 32
+	.quad 49
+	.quad 50
+	.quad 56
+	.quad 32
+	.quad 97
+	.quad 110
+	.quad 100
+	.quad 32
+	.quad 98
+	.quad 32
+	.quad 61
+	.quad 32
+	.quad 48
+	.quad 34
+	.text
+
+	.section .rodata
+	.align 8
+.L79:
+	.quad 50
+	.quad 83
+	.quad 104
+	.quad 111
+	.quad 117
+	.quad 108
+	.quad 100
+	.quad 32
+	.quad 104
+	.quad 97
+	.quad 118
+	.quad 101
+	.quad 32
+	.quad 112
+	.quad 114
+	.quad 105
+	.quad 110
+	.quad 116
+	.quad 101
+	.quad 100
+	.quad 32
+	.quad 34
+	.quad 80
+	.quad 111
+	.quad 105
+	.quad 110
+	.quad 116
+	.quad 32
+	.quad 97
+	.quad 116
+	.quad 32
+	.quad 120
+	.quad 32
+	.quad 61
+	.quad 32
+	.quad 49
+	.quad 48
+	.quad 48
+	.quad 32
+	.quad 97
+	.quad 110
+	.quad 100
+	.quad 32
+	.quad 121
+	.quad 32
+	.quad 61
+	.quad 32
+	.quad 50
+	.quad 48
+	.quad 48
+	.quad 34
+	.text
+
+	.section .rodata
+	.align 8
+.L80:
+	.quad 50
+	.quad 83
+	.quad 104
+	.quad 111
+	.quad 117
+	.quad 108
+	.quad 100
+	.quad 32
+	.quad 104
+	.quad 97
+	.quad 118
+	.quad 101
+	.quad 32
+	.quad 112
+	.quad 114
+	.quad 105
+	.quad 110
+	.quad 116
+	.quad 101
+	.quad 100
+	.quad 32
+	.quad 34
+	.quad 80
+	.quad 111
+	.quad 105
+	.quad 110
+	.quad 116
+	.quad 32
+	.quad 97
+	.quad 116
+	.quad 32
+	.quad 120
+	.quad 32
+	.quad 61
+	.quad 32
+	.quad 49
+	.quad 48
+	.quad 53
+	.quad 32
+	.quad 97
+	.quad 110
+	.quad 100
+	.quad 32
+	.quad 121
+	.quad 32
+	.quad 61
+	.quad 32
+	.quad 50
+	.quad 48
+	.quad 53
+	.quad 34
+	.text
+
+	.section .rodata
+	.align 8
+.L84:
+	.quad 52
+	.quad 83
+	.quad 104
+	.quad 111
+	.quad 117
+	.quad 108
+	.quad 100
+	.quad 32
+	.quad 104
+	.quad 97
+	.quad 118
+	.quad 101
+	.quad 32
+	.quad 112
+	.quad 114
+	.quad 105
+	.quad 110
+	.quad 116
+	.quad 101
+	.quad 100
+	.quad 32
+	.quad 34
+	.quad 80
+	.quad 111
+	.quad 105
+	.quad 110
+	.quad 116
+	.quad 32
+	.quad 97
+	.quad 116
+	.quad 32
+	.quad 120
+	.quad 32
+	.quad 61
+	.quad 32
+	.quad 49
+	.quad 49
+	.quad 48
+	.quad 53
+	.quad 32
+	.quad 97
+	.quad 110
+	.quad 100
+	.quad 32
+	.quad 121
+	.quad 32
+	.quad 61
+	.quad 32
+	.quad 49
+	.quad 50
+	.quad 48
+	.quad 53
+	.quad 34
+	.text
+
+	.section .rodata
+	.align 8
+.L83:
+	.quad 52
+	.quad 83
+	.quad 104
+	.quad 111
+	.quad 117
+	.quad 108
+	.quad 100
+	.quad 32
+	.quad 104
+	.quad 97
+	.quad 118
+	.quad 101
+	.quad 32
+	.quad 112
+	.quad 114
+	.quad 105
+	.quad 110
+	.quad 116
+	.quad 101
+	.quad 100
+	.quad 32
+	.quad 34
+	.quad 80
+	.quad 111
+	.quad 105
+	.quad 110
+	.quad 116
+	.quad 32
+	.quad 97
+	.quad 116
+	.quad 32
+	.quad 120
+	.quad 32
+	.quad 61
+	.quad 32
+	.quad 49
+	.quad 49
+	.quad 49
+	.quad 48
+	.quad 32
+	.quad 97
+	.quad 110
+	.quad 100
+	.quad 32
+	.quad 121
+	.quad 32
+	.quad 61
+	.quad 32
+	.quad 50
+	.quad 50
+	.quad 49
+	.quad 48
+	.quad 34
+	.text
+
+	.section .rodata
+	.align 8
+.L78:
+	.quad 35
+	.quad 83
+	.quad 116
+	.quad 97
+	.quad 114
+	.quad 116
+	.quad 105
+	.quad 110
+	.quad 103
+	.quad 32
+	.quad 112
+	.quad 111
+	.quad 105
+	.quad 110
+	.quad 116
+	.quad 47
+	.quad 99
+	.quad 111
+	.quad 108
+	.quad 111
+	.quad 114
+	.quad 101
+	.quad 100
+	.quad 112
+	.quad 111
+	.quad 105
+	.quad 110
+	.quad 116
+	.quad 32
+	.quad 101
+	.quad 120
+	.quad 97
+	.quad 109
+	.quad 112
+	.quad 108
+	.quad 101
+	.text
+

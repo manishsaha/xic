@@ -1,0 +1,464 @@
+# xth test script
+#
+# This file is a test script for xth (xic Test Harness).  It
+# conforms to the following grammar:
+#
+#   ScriptFile      ::= Commands+
+#   Command         ::= build
+#                     | CompilerTest
+#   CompilerTest    ::= TestKind (\(TestName\))? ([TestPath])? ("CmdLineArgs")?
+#                           { (FileTest;)* }
+#   TestKind        ::= xic
+#   TestName        ::= LitString
+#   FileTest        ::= Filenames Description? FailureSet?
+#   Filenames       ::= Filename+
+#   Description     ::= LitString
+#   FailureSet      ::= Failure (, Failure)*
+#   Failure         ::= \( ErrorKind \)
+#                     | \( ErrorKind, LitString \)
+#
+#   TestPath        :   the path to the test files, enclosed in quotes,
+#                       relative to the path given in xth's -testpath flag.
+#   CmdLineArgs     :   command-line arguments for xic
+#   Filename        :   the name of a file, interpreted from TestPath.
+#   LitString       :   a literal string, enclosed in quotes.
+#   ErrorKind       :   one of, or a unique prefix of one of the following
+#                       strings: "Lexical Error", "Syntax Error", or
+#                       "Semantic Error".
+#
+# xth runs the commands in order of appearance.
+
+# build compiler first
+build
+
+xic ("Test -target linux -O") "-libpath $(testpath) -target linux -O" {
+    arr01.xi;
+    arr02.xi;
+    arr03.xi;
+    arr04.xi;
+    arr05.xi;
+    arr06.xi;
+    arr07.xi;
+    arr08.xi;
+    char01.xi;
+    char02.xi;
+    char03.xi;
+    char04.xi;
+    discard.xi;
+    factorial.xi;
+    gcd01.xi;
+    hmult01.xi;
+    primes01.xi;
+    strings01.xi;
+    strings02.xi;
+    strings03.xi;
+    test01.xi;
+    test02.xi;
+    test03.xi;
+    test04.xi;
+    test05.xi;
+    test06.xi;
+    test07.xi;
+    tuples01.xi;
+    while01.xi;
+    while02.xi;
+    func01.xi;
+    func02.xi;
+    func03.xi;
+    func04.xi;
+    func05.xi;
+    func06.xi;
+    func07.xi;
+    constfold01.xi;
+    overflow01.xi;
+    sort.xi;
+    operators01.xi;
+    doubleprint.xi;
+    simpleprint.xi;
+    sideeffect.xi;
+    arraydecl.xi;
+}
+
+xic ("Test -target linux -O -Ocopy") "-libpath $(testpath) -target linux -O -Ocopy" {
+    arr01.xi;
+    arr02.xi;
+    arr03.xi;
+    arr04.xi;
+    arr05.xi;
+    arr06.xi;
+    arr07.xi;
+    arr08.xi;
+    char01.xi;
+    char02.xi;
+    char03.xi;
+    char04.xi;
+    discard.xi;
+    factorial.xi;
+    gcd01.xi;
+    hmult01.xi;
+    primes01.xi;
+    strings01.xi;
+    strings02.xi;
+    strings03.xi;
+    test01.xi;
+    test02.xi;
+    test03.xi;
+    test04.xi;
+    test05.xi;
+    test06.xi;
+    test07.xi;
+    tuples01.xi;
+    while01.xi;
+    while02.xi;
+    func01.xi;
+    func02.xi;
+    func03.xi;
+    func04.xi;
+    func05.xi;
+    func06.xi;
+    func07.xi;
+    constfold01.xi;
+    overflow01.xi;
+    sort.xi;
+    operators01.xi;
+    doubleprint.xi;
+    simpleprint.xi;
+    sideeffect.xi;
+    arraydecl.xi;
+}
+
+xic ("Test -target linux -O -Ocopy -Odce") "-libpath $(testpath) -target linux -O -Ocopy -Odce" {
+    arr01.xi;
+    arr02.xi;
+    arr03.xi;
+    arr04.xi;
+    arr05.xi;
+    arr06.xi;
+    arr07.xi;
+    arr08.xi;
+    char01.xi;
+    char02.xi;
+    char03.xi;
+    char04.xi;
+    discard.xi;
+    factorial.xi;
+    gcd01.xi;
+    hmult01.xi;
+    primes01.xi;
+    strings01.xi;
+    strings02.xi;
+    strings03.xi;
+    test01.xi;
+    test02.xi;
+    test03.xi;
+    test04.xi;
+    test05.xi;
+    test06.xi;
+    test07.xi;
+    tuples01.xi;
+    while01.xi;
+    while02.xi;
+    func01.xi;
+    func02.xi;
+    func03.xi;
+    func04.xi;
+    func05.xi;
+    func06.xi;
+    func07.xi;
+    constfold01.xi;
+    overflow01.xi;
+    sort.xi;
+    operators01.xi;
+    doubleprint.xi;
+    simpleprint.xi;
+    sideeffect.xi;
+    arraydecl.xi;
+}
+
+xic ("Test -target linux -O -Ocopy -Ocse") "-libpath $(testpath) -target linux -O -Ocopy -Ocse" {
+    arr01.xi;
+    arr02.xi;
+    arr03.xi;
+    arr04.xi;
+    arr05.xi;
+    arr06.xi;
+    arr07.xi;
+    arr08.xi;
+    char01.xi;
+    char02.xi;
+    char03.xi;
+    char04.xi;
+    discard.xi;
+    factorial.xi;
+    gcd01.xi;
+    hmult01.xi;
+    primes01.xi;
+    strings01.xi;
+    strings02.xi;
+    strings03.xi;
+    test01.xi;
+    test02.xi;
+    test03.xi;
+    test04.xi;
+    test05.xi;
+    test06.xi;
+    test07.xi;
+    tuples01.xi;
+    while01.xi;
+    while02.xi;
+    func01.xi;
+    func02.xi;
+    func03.xi;
+    func04.xi;
+    func05.xi;
+    func06.xi;
+    func07.xi;
+    constfold01.xi;
+    overflow01.xi;
+    sort.xi;
+    operators01.xi;
+    doubleprint.xi;
+    simpleprint.xi;
+    sideeffect.xi;
+    arraydecl.xi;
+}
+
+xic ("Test -target linux -O -Ocopy -Odce -Ocse") "-libpath $(testpath) -target linux -O -Ocopy -Odce -Ocse" {
+    arr01.xi;
+    arr02.xi;
+    arr03.xi;
+    arr04.xi;
+    arr05.xi;
+    arr06.xi;
+    arr07.xi;
+    arr08.xi;
+    char01.xi;
+    char02.xi;
+    char03.xi;
+    char04.xi;
+    discard.xi;
+    factorial.xi;
+    gcd01.xi;
+    hmult01.xi;
+    primes01.xi;
+    strings01.xi;
+    strings02.xi;
+    strings03.xi;
+    test01.xi;
+    test02.xi;
+    test03.xi;
+    test04.xi;
+    test05.xi;
+    test06.xi;
+    test07.xi;
+    tuples01.xi;
+    while01.xi;
+    while02.xi;
+    func01.xi;
+    func02.xi;
+    func03.xi;
+    func04.xi;
+    func05.xi;
+    func06.xi;
+    func07.xi;
+    constfold01.xi;
+    overflow01.xi;
+    sort.xi;
+    operators01.xi;
+    doubleprint.xi;
+    simpleprint.xi;
+    sideeffect.xi;
+    arraydecl.xi;
+}
+
+xic ("Test -target linux -O -Odce") "-libpath $(testpath) -target linux -O -Odce" {
+    arr01.xi;
+    arr02.xi;
+    arr03.xi;
+    arr04.xi;
+    arr05.xi;
+    arr06.xi;
+    arr07.xi;
+    arr08.xi;
+    char01.xi;
+    char02.xi;
+    char03.xi;
+    char04.xi;
+    discard.xi;
+    factorial.xi;
+    gcd01.xi;
+    hmult01.xi;
+    primes01.xi;
+    strings01.xi;
+    strings02.xi;
+    strings03.xi;
+    test01.xi;
+    test02.xi;
+    test03.xi;
+    test04.xi;
+    test05.xi;
+    test06.xi;
+    test07.xi;
+    tuples01.xi;
+    while01.xi;
+    while02.xi;
+    func01.xi;
+    func02.xi;
+    func03.xi;
+    func04.xi;
+    func05.xi;
+    func06.xi;
+    func07.xi;
+    constfold01.xi;
+    overflow01.xi;
+    sort.xi;
+    operators01.xi;
+    doubleprint.xi;
+    simpleprint.xi;
+    sideeffect.xi;
+    arraydecl.xi;
+}
+
+xic ("Test -target linux -O -Odce -Ocse") "-libpath $(testpath) -target linux -O -Odce -Ocse" {
+    arr01.xi;
+    arr02.xi;
+    arr03.xi;
+    arr04.xi;
+    arr05.xi;
+    arr06.xi;
+    arr07.xi;
+    arr08.xi;
+    char01.xi;
+    char02.xi;
+    char03.xi;
+    char04.xi;
+    discard.xi;
+    factorial.xi;
+    gcd01.xi;
+    hmult01.xi;
+    primes01.xi;
+    strings01.xi;
+    strings02.xi;
+    strings03.xi;
+    test01.xi;
+    test02.xi;
+    test03.xi;
+    test04.xi;
+    test05.xi;
+    test06.xi;
+    test07.xi;
+    tuples01.xi;
+    while01.xi;
+    while02.xi;
+    func01.xi;
+    func02.xi;
+    func03.xi;
+    func04.xi;
+    func05.xi;
+    func06.xi;
+    func07.xi;
+    constfold01.xi;
+    overflow01.xi;
+    sort.xi;
+    operators01.xi;
+    doubleprint.xi;
+    simpleprint.xi;
+    sideeffect.xi;
+    arraydecl.xi;
+}
+
+xic ("Test -target linux -O -Ocse") "-libpath $(testpath) -target linux -O -Ocse" {
+    arr01.xi;
+    arr02.xi;
+    arr03.xi;
+    arr04.xi;
+    arr05.xi;
+    arr06.xi;
+    arr07.xi;
+    arr08.xi;
+    char01.xi;
+    char02.xi;
+    char03.xi;
+    char04.xi;
+    discard.xi;
+    factorial.xi;
+    gcd01.xi;
+    hmult01.xi;
+    primes01.xi;
+    strings01.xi;
+    strings02.xi;
+    strings03.xi;
+    test01.xi;
+    test02.xi;
+    test03.xi;
+    test04.xi;
+    test05.xi;
+    test06.xi;
+    test07.xi;
+    tuples01.xi;
+    while01.xi;
+    while02.xi;
+    func01.xi;
+    func02.xi;
+    func03.xi;
+    func04.xi;
+    func05.xi;
+    func06.xi;
+    func07.xi;
+    constfold01.xi;
+    overflow01.xi;
+    sort.xi;
+    operators01.xi;
+    doubleprint.xi;
+    simpleprint.xi;
+    sideeffect.xi;
+    arraydecl.xi;
+}
+
+xic ("Test -target linux -O -Ocopy -Odce -Oreg") "-libpath $(testpath) -target linux -O -Ocopy -Odce -Oreg" {
+    arr01.xi;
+    arr02.xi;
+    arr03.xi;
+    arr04.xi;
+    arr05.xi;
+    arr06.xi;
+    arr07.xi;
+    arr08.xi;
+    char01.xi;
+    char02.xi;
+    char03.xi;
+    char04.xi;
+    discard.xi;
+    factorial.xi;
+    gcd01.xi;
+    hmult01.xi;
+    primes01.xi;
+    strings01.xi;
+    strings02.xi;
+    strings03.xi;
+    test01.xi;
+    test02.xi;
+    test03.xi;
+    test04.xi;
+    test05.xi;
+    test06.xi;
+    test07.xi;
+    tuples01.xi;
+    while01.xi;
+    while02.xi;
+    func01.xi;
+    func02.xi;
+    func03.xi;
+    func04.xi;
+    func05.xi;
+    func06.xi;
+    func07.xi;
+    constfold01.xi;
+    overflow01.xi;
+    sort.xi;
+    operators01.xi;
+    doubleprint.xi;
+    simpleprint.xi;
+    sideeffect.xi;
+    arraydecl.xi;
+}

@@ -1,0 +1,98 @@
+# xth test script
+#
+# This file is a test script for xth (xic Test Harness).  It
+# conforms to the following grammar:
+#
+#   ScriptFile      ::= Commands+
+#   Command         ::= build
+#                     | CompilerTest
+#   CompilerTest    ::= TestKind (\(TestName\))? ([TestPath])? ("CmdLineArgs")?
+#                           { (FileTest;)* }
+#   TestKind        ::= xic
+#   TestName        ::= LitString
+#   FileTest        ::= Filenames Description? FailureSet?
+#   Filenames       ::= Filename+
+#   Description     ::= LitString
+#   FailureSet      ::= Failure (, Failure)*
+#   Failure         ::= \( ErrorKind \)
+#                     | \( ErrorKind, LitString \)
+#
+#   TestPath        :   the path to the test files, enclosed in quotes,
+#                       relative to the path given in xth's -testpath flag.
+#   CmdLineArgs     :   command-line arguments for xic
+#   Filename        :   the name of a file, interpreted from TestPath.
+#   LitString       :   a literal string, enclosed in quotes.
+#   ErrorKind       :   one of, or a unique prefix of one of the following
+#                       strings: "Lexical Error", "Syntax Error", or
+#                       "Semantic Error".
+#
+# xth runs the commands in order of appearance.
+
+# build compiler first
+build
+
+xic ("Test --help") "--help" {
+    ;
+}
+
+xic ("Test --typecheck") "-libpath $(testpath) --typecheck" {
+    arrays01.xi (Semantic, "illegal operation");
+    arrays02.xi;
+    arrays03.xi;
+    arrays04.xi;
+    arrays05.xi;
+    arrays06.xi (Semantic, "illegal operation");
+    arrays07.xi;
+    arrays08.xi (Semantic, "illegal operation");
+    arrays09.xi;
+    arrays10.xi (Semantic, "array type mismatch");
+    arrays11.xi;
+    arrays12.xi;
+    arrays13.xi (Semantic, "illegal operation");
+    arrays14.xi (Semantic, "array type mismatch");
+    arrays15.xi (Semantic, "illegal array type");
+    expr01.xi;
+    expr02.xi (Semantic, "illegal operation");
+    expr03.xi;
+    expr04.xi (Semantic, "illegal length expression");
+    expr05.xi (Semantic, "found non-variable symbol f");
+    expr06.xi (Semantic, "undefined symbol y");
+    expr07.xi (Semantic, "illegal operation");
+    func01.xi;
+    func02.xi (Semantic, "argument count mismatch for f");
+    func03.xi (Semantic, "argument count mismatch for f");
+    func04.xi (Semantic, "argument count mismatch for f");
+    func05.xi (Semantic, "argument type mismatch for f");
+    func06.xi;
+    func07.xi (Semantic, "argument type mismatch for f");
+    func08.xi (Semantic, "procedure f cannot be called as function");
+    func09.xi (Semantic, "g is not a function");
+    func10.xi;
+    func11.xi (Semantic, "x already exists in context");
+    func12.xi (Semantic, "foo already exists in context");
+    func13.xi (Semantic, "foo already exists in context");
+    func14.xi;
+    func15.xi (Semantic, "getchar already exists in context");
+    func16.xi (Semantic, "getchar method was redefined with the wrong type");
+    stmt01.xi (Semantic, "x already exists in context");
+    stmt02.xi;
+    stmt03.xi;
+    stmt04.xi (Semantic, "Control flow never reaches this statement");
+    stmt05.xi (Semantic, "Control flow never reaches this statement");
+    stmt06.xi;
+    stmt07.xi;
+    stmt08.xi (Syntax, "unexpected token return");
+    stmt09.xi (Semantic, "x already exists in context");
+    stmt10.xi;
+    if01.xi;
+    if02.xi;
+    if03.xi;
+    if04.xi;
+    if05.xi;
+    if06.xi;
+    if07.xi (Semantic, "undefined symbol c");
+    while01.xi;
+    while02.xi;
+    while03.xi (Semantic, "while guard not boolean");
+    while04.xi;
+}

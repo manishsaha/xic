@@ -1,0 +1,5 @@
+"Hello World!"
+"Hello Worl\x64!"
+""
+"\r \n \t \b \\ \' \""
+"\\\""

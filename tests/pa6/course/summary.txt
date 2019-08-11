@@ -1,0 +1,67 @@
+    arracc02.xi: Mismatch detected at line 2 of file arracc02.ir.nml
+expected: 0
+      found   : Index: 0
+
+    arracc04.xi: Mismatch detected at line 3 of file arracc04.ir.nml
+expected: 0
+      found   : Index: 0
+    arracc05.xi: Mismatch detected at line 1 of file arracc05.ir.nml
+      expected: _xi_out_of_bounds called
+      found   : 1
+
+    arracc07.xi: Mismatch detected at line 3 of file arracc07.ir.nml
+expected: 1
+      found   : Index: 0
+    arracc08.xi: Mismatch detected at line 3 of file arracc08.ir.nml
+expected: 8
+      found   : _xi_out_of_bounds called
+
+    assign05.xi: Mismatch detected at line 2 of file assign05.ir.nml
+      expected: f() called: 1
+      found   : f() called: 0
+
+    assign06.xi: Mismatch detected at line 2 of file assign06.ir.nml
+      expected: f() called: 3
+      found   : f() called: 0
+
+    assign07.xi: Mismatch detected at line 2 of file assign07.ir.nml
+    expected: g() called: 2
+    found   : f() called: 1
+
+assign08.xi: Mismatch detected at line 2 of file assign08.ir.nml
+  expected: g() called: 2
+  found   : f() called: 1
+
+assign09.xi: Mismatch detected at line 1 of file assign09.ir.nml
+  expected: Index: 3
+  found   : Index: 2
+
+assign10.xi: Mismatch detected at line 3 of file assign10.ir.nml
+expected: 0
+  found   : _xi_out_of_bounds called
+
+binary06.xi: Mismatch detected at line 32 of file binary06.ir.nml
+expected: 0
+  found   : f() called: 1
+
+binary12.xi: Mismatch detected at line 43 of file binary12.ir.nml
+expected: 0
+  found   : f() called: 0
+
+if09.xi: Mismatch detected at line 3 of file if09.ir.nml
+  expected: lt() called: 0 < 0
+  found   : lt() called: 0 < -5570466542942871833
+
+    localdecl13.xi: Mismatch detected at line 4 of file localdecl13.ir.nml
+expected: 2
+      found   : Index: 0
+
+    localdecl14.xi: Syntax error for input symbol "NUMBER" spanning from 1:1 to 1:2
+      instead expected token classes are []
+      Couldn't repair and continue parse for input symbol "NUMBER" spanning from 1:1 to 1:2
+      IR syntax error: Can't recover from previous error(s)
+
+    medley01.xi: Mismatch detected at line 3 of file medley01.ir.nml
+      expected: world
+      found   : hello
+

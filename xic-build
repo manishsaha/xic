@@ -1,0 +1,35 @@
+#!/bin/bash
+#
+# Xi compiler build script
+#
+
+install_sedlex() {
+    # Setup sedlex
+    tar -xvf ./lib/sedlex-1.99.4+opam.tar.gz > /dev/null
+    cd sedlex
+    make &> /dev/null && make install &> /dev/null
+    cd ..
+    rm -rf sedlex
+}
+
+install_dependencies() {
+    echo "Installing dependencies..."
+    mkdir -p ~/.opam/repo/default/archives &> /dev/null
+    cp -n ./lib/* ~/.opam/repo/default/archives &> /dev/null
+    opam install -y menhir ppx_tools_versioned gen uchar ppx_deriving zarith bignum dune ocamlgraph
+    install_sedlex
+}
+
+build_compiler() {
+    set -e
+    echo "Building runtime..."
+    cd runtime && make && cd ..
+    echo "Building compiler..."
+    make
+    echo "Building interpreter..."
+    cd src/interpreter
+    make &> /dev/null
+    set +e
+}
+
+install_dependencies && build_compiler

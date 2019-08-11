@@ -1,0 +1,84 @@
+# xth test script
+#
+# This file is a test script for xth (xic Test Harness).  It
+# conforms to the following grammar:
+#
+#   ScriptFile      ::= Commands+
+#   Command         ::= build
+#                     | CompilerTest
+#   CompilerTest    ::= TestKind (\(TestName\))? ([TestPath])? ("CmdLineArgs")?
+#                           { (FileTest;)* }
+#   TestKind        ::= xic
+#   TestName        ::= LitString
+#   FileTest        ::= Filenames Description? FailureSet?
+#   Filenames       ::= Filename+
+#   Description     ::= LitString
+#   FailureSet      ::= Failure (, Failure)*
+#   Failure         ::= \( ErrorKind \)
+#                     | \( ErrorKind, LitString \)
+#
+#   TestPath        :   the path to the test files, enclosed in quotes,
+#                       relative to the path given in xth's -testpath flag.
+#   CmdLineArgs     :   command-line arguments for xic
+#   Filename        :   the name of a file, interpreted from TestPath.
+#   LitString       :   a literal string, enclosed in quotes.
+#   ErrorKind       :   one of, or a unique prefix of one of the following
+#                       strings: "Lexical Error", "Syntax Error", or
+#                       "Semantic Error".
+#
+# xth runs the commands in order of appearance.
+
+# build compiler first
+build
+
+xic ("Test --parse") "--parse" {
+    types02.xi (Syntax, "unexpected token bool");
+    types03.xi (Syntax, "unexpected token int");
+    types04.xi;
+    return.xi (Syntax, "unexpected token return");
+    return02.xi;
+    return03.xi;
+    return04.xi;
+    var.xi;
+    var02.xi;
+    var03.xi (Syntax, "unexpected token :");
+    lists.xi;
+    if.xi;
+    if02.xi;
+    vardecl.xi;
+    precedence.xi;
+    assign02.xi;
+    assign04.xi;
+    empty.xi (Syntax, "unexpected end of file");
+    group_of_anonymous01_03.xi (Syntax, "unexpected token string asd");
+    group_of_anonymous01_04.xi (Syntax, "unexpected token string asd");
+    group_of_anonymous04_01.xi;
+    group_of_anonymous07_01.xi;
+    group_of_anonymous07_06.xi (Lexical, "lexical error");
+    group_of_anonymous08_01.xi;
+    group_of_anonymous08_01_02.xi (Syntax, "unexpected token =");
+    group_of_anonymous08_03.xi;
+    group_of_anonymous09_01.xi (Syntax, "unexpected token ");
+    group_of_anonymous09_02.xi;
+    group_of_anonymous10_02.xi (Syntax, "unexpected token id a");
+    i01.ixi;
+    i03.ixi;
+    paramdecl01.xi (Syntax, "unexpected token integer 01");
+    paramdecl02.xi (Syntax, "unexpected token integer 02");
+    paramdecl03.xi (Syntax, "unexpected token integer 03");
+    return.xi (Syntax, "unexpected token return");
+    types02.xi (Syntax, "unexpected token bool");
+    types03.xi (Syntax, "unexpected token int");
+    use01.xi (Syntax, "unexpected token ");
+    use02.xi (Syntax, "unexpected token ");
+    var03.xi (Lexical, "unexpected token token :");
+    vardecl01.xi (Syntax, "unexpected token integer 1");
+    vardecl02.xi (Syntax, "unexpected token integer 1");
+    vardecl03.xi (Syntax, "unexpected token _");
+    vardecl04.xi (Syntax, "unexpected token }");
+    vardecl05.xi (Syntax, "unexpected token }");
+    vardecl06.xi (Syntax, "unexpected token ,");
+    vardecl07.xi (Syntax, "unexpected token ,");
+    vardecl08.xi (Syntax, "unexpected token =");
+    x04.xi (Syntax, "unexpected token ");
+}

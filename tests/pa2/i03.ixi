@@ -1,0 +1,9 @@
+p1()
+p2(b: bool)
+p3(x: int, a: int[])
+f1(): int
+f2(b: bool): int
+f3(x: int, a: int[]): int
+g1(): bool
+g2(i: int): bool
+

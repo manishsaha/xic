@@ -1,0 +1,192 @@
+# xth test script
+#
+# This file is a test script for xth (xic Test Harness).  It
+# conforms to the following grammar:
+#
+#   ScriptFile      ::= Commands+
+#   Command         ::= build
+#                     | CompilerTest
+#   CompilerTest    ::= TestKind (\(TestName\))? ([TestPath])? ("CmdLineArgs")?
+#                           { (FileTest;)* }
+#   TestKind        ::= xic
+#   TestName        ::= LitString
+#   FileTest        ::= Filenames Description? FailureSet?
+#   Filenames       ::= Filename+
+#   Description     ::= LitString
+#   FailureSet      ::= Failure (, Failure)*
+#   Failure         ::= \( ErrorKind \)
+#                     | \( ErrorKind, LitString \)
+#
+#   TestPath        :   the path to the test files, enclosed in quotes,
+#                       relative to the path given in xth's -testpath flag.
+#   CmdLineArgs     :   command-line arguments for xic
+#   Filename        :   the name of a file, interpreted from TestPath.
+#   LitString       :   a literal string, enclosed in quotes.
+#   ErrorKind       :   one of, or a unique prefix of one of the following
+#                       strings: "Lexical Error", "Syntax Error", or
+#                       "Semantic Error".
+#
+# xth runs the commands in order of appearance.
+
+# build compiler first
+build
+
+xic ("Test -target linux -O") "-libpath $(testpath) -target linux -O" {
+  arracc02.xi;
+  arracc04.xi;
+  arracc05.xi;
+  arracc07.xi;
+  arracc08.xi;
+  assign05.xi;
+  assign06.xi;
+  assign07.xi;
+  assign08.xi;
+  assign09.xi;
+  assign10.xi;
+  binary06.xi;
+  binary12.xi;
+  if09.xi;
+  localdecl13.xi;
+  localdecl14.xi;
+  medley01.xi;
+}
+
+xic ("Test -target linux -O -Ocopy") "-libpath $(testpath) -target linux -O -Ocopy" {
+  arracc02.xi;
+  arracc04.xi;
+  arracc05.xi;
+  arracc07.xi;
+  arracc08.xi;
+  assign05.xi;
+  assign06.xi;
+  assign07.xi;
+  assign08.xi;
+  assign09.xi;
+  assign10.xi;
+  binary06.xi;
+  binary12.xi;
+  if09.xi;
+  localdecl13.xi;
+  localdecl14.xi;
+  medley01.xi;
+}
+
+xic ("Test -target linux -O -Ocopy -Odce") "-libpath $(testpath) -target linux -O -Ocopy -Odce" {
+  arracc02.xi;
+  arracc04.xi;
+  arracc05.xi;
+  arracc07.xi;
+  arracc08.xi;
+  assign05.xi;
+  assign06.xi;
+  assign07.xi;
+  assign08.xi;
+  assign09.xi;
+  assign10.xi;
+  binary06.xi;
+  binary12.xi;
+  if09.xi;
+  localdecl13.xi;
+  localdecl14.xi;
+  medley01.xi;
+}
+
+xic ("Test -target linux -O -Ocopy -Ocse") "-libpath $(testpath) -target linux -O -Ocopy -Ocse" {
+  arracc02.xi;
+  arracc04.xi;
+  arracc05.xi;
+  arracc07.xi;
+  arracc08.xi;
+  assign05.xi;
+  assign06.xi;
+  assign07.xi;
+  assign08.xi;
+  assign09.xi;
+  assign10.xi;
+  binary06.xi;
+  binary12.xi;
+  if09.xi;
+  localdecl13.xi;
+  localdecl14.xi;
+  medley01.xi;
+}
+
+xic ("Test -target linux -O -Ocopy -Odce -Ocse") "-libpath $(testpath) -target linux -O -Ocopy -Odce -Ocse" {
+  arracc02.xi;
+  arracc04.xi;
+  arracc05.xi;
+  arracc07.xi;
+  arracc08.xi;
+  assign05.xi;
+  assign06.xi;
+  assign07.xi;
+  assign08.xi;
+  assign09.xi;
+  assign10.xi;
+  binary06.xi;
+  binary12.xi;
+  if09.xi;
+  localdecl13.xi;
+  localdecl14.xi;
+  medley01.xi;
+}
+
+xic ("Test -target linux -O -Odce") "-libpath $(testpath) -target linux -O -Odce" {
+  arracc02.xi;
+  arracc04.xi;
+  arracc05.xi;
+  arracc07.xi;
+  arracc08.xi;
+  assign05.xi;
+  assign06.xi;
+  assign07.xi;
+  assign08.xi;
+  assign09.xi;
+  assign10.xi;
+  binary06.xi;
+  binary12.xi;
+  if09.xi;
+  localdecl13.xi;
+  localdecl14.xi;
+  medley01.xi;
+}
+
+xic ("Test -target linux -O -Odce -Ocse") "-libpath $(testpath) -target linux -O -Odce -Ocse" {
+  arracc02.xi;
+  arracc04.xi;
+  arracc05.xi;
+  arracc07.xi;
+  arracc08.xi;
+  assign05.xi;
+  assign06.xi;
+  assign07.xi;
+  assign08.xi;
+  assign09.xi;
+  assign10.xi;
+  binary06.xi;
+  binary12.xi;
+  if09.xi;
+  localdecl13.xi;
+  localdecl14.xi;
+  medley01.xi;
+}
+
+xic ("Test -target linux -O -Ocse") "-libpath $(testpath) -target linux -O -Ocse" {
+  arracc02.xi;
+  arracc04.xi;
+  arracc05.xi;
+  arracc07.xi;
+  arracc08.xi;
+  assign05.xi;
+  assign06.xi;
+  assign07.xi;
+  assign08.xi;
+  assign09.xi;
+  assign10.xi;
+  binary06.xi;
+  binary12.xi;
+  if09.xi;
+  localdecl13.xi;
+  localdecl14.xi;
+  medley01.xi;
+}
